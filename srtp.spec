@@ -1,7 +1,7 @@
 Summary:	Secure Real-time Transport Protocol (SRTP)
 Name:		srtp
 Version:	1.4.4
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
 Group:		System/Libraries
 URL:		http://srtp.sourceforge.net/
@@ -25,12 +25,14 @@ in RFC 3711.
 
 %build
 
+export CFLAGS="$RPM_OPT_FLAGS -fPIC"
+export CXXFLAGS="$RPM_OPT_FLAGS -fPIC"
 %configure \
 	--enable-pic \
 	--enable-syslog \
 	--enable-generic-aesicm
 
-%make 
+%make
 %make libsrtp.a
 
 %install
