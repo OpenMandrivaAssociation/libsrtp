@@ -5,7 +5,7 @@
 Summary:	Secure Real-time Transport Protocol (SRTP)
 Name:		srtp
 Version:	1.4.4
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPL
 Group:		System/Libraries
 URL:		http://srtp.sourceforge.net/
