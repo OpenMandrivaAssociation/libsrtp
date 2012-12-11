@@ -83,3 +83,25 @@ rm -rf %{buildroot}
 %doc CHANGES README
 %{_includedir}/%{name}/*
 %{_libdir}/*.so
+
+
+%changelog
+* Tue Apr 03 2012 Oden Eriksson <oeriksson@mandriva.com> 1.4.4-4mdv2012.0
++ Revision: 788942
+- bump release
+- libify the thing
+
+* Sat Dec 18 2010 Lonyai Gergely <aleph@mandriva.org> 1.4.4-2mdv2011.0
++ Revision: 622766
+- Add -fPIC to CFLAGS
+
+* Wed Nov 24 2010 Lonyai Gergely <aleph@mandriva.org> 1.4.4-1mdv2011.0
++ Revision: 600451
+- 1.4.4
+
+* Wed Nov 24 2010 Lonyai Gergely <aleph@mandriva.org> 1.4.2-1mdv2011.0
++ Revision: 600442
+- 1.4.2
+  initial version
+- create srtp
+
