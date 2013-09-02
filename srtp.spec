@@ -12,7 +12,6 @@ URL:		http://srtp.sourceforge.net/
 Source0:	http://srtp.sourceforge.net/%{name}-%{version}.tgz
 Patch0:		srtp-shared.diff
 BuildRequires:	autoconf automake libtool
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 SRTP is a security profile for RTP that adds confidentiality, message
@@ -64,22 +63,15 @@ export CXXFLAGS="%{optflags} -fPIC"
 %make
 
 %install
-rm -rf %{buildroot}
-
-%makeinstall
+%makeinstall_std
 
 rm -f %{buildroot}%{_libdir}/*.*a
 
-%clean
-rm -rf %{buildroot}
-
 %files -n %{libname}
-%defattr(-,root,root)
 %doc CHANGES README
 %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %doc CHANGES README
 %{_includedir}/%{name}/*
 %{_libdir}/*.so
