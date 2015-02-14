@@ -54,7 +54,8 @@ autoreconf -fi
 
 export CFLAGS="%{optflags} -fPIC"
 export CXXFLAGS="%{optflags} -fPIC"
-
+export CC=gcc
+export CXX=g++
 %configure \
 	--enable-pic \
 	--enable-syslog \
