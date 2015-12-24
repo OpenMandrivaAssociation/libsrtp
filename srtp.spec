@@ -1,16 +1,16 @@
-%define	major 0
+%define	major 1
 %define libname	%mklibname srtp %{major}
 %define develname %mklibname -d srtp
+%define _disable_rebuild_configure 1
 
 Summary:	Secure Real-time Transport Protocol (SRTP)
-Name:		srtp
-Version:	1.4.4
-Release:	14
+Name:		libsrtp
+Version:	1.5.3
+Release:	1
 License:	GPL
 Group:		System/Libraries
-URL:		http://srtp.sourceforge.net/
-Source0:	http://srtp.sourceforge.net/%{name}-%{version}.tgz
-Patch0:		srtp-shared.diff
+URL:		https://github.com/cisco/libsrtp/
+Source0:	https://github.com/cisco/libsrtp/releases/%{name}-%{version}.tar.gz
 BuildRequires:	autoconf automake libtool
 
 %description
@@ -43,25 +43,16 @@ Protocol (SRTP) library
 
 %prep
 
-%setup -q -n %{name}
-%patch0 -p1
-
-# lib64 fix
-#find -name "Makefile" | xargs perl -pi -e 's|\$\(INSTALL_BASE\)/lib|\$\(INSTALL_BASE\)/%{_lib}|g'
+%setup -q
+%apply_patches
 
 %build
-autoreconf -fi
 
-export CFLAGS="%{optflags} -fPIC"
-export CXXFLAGS="%{optflags} -fPIC"
-export CC=gcc
-export CXX=g++
 %configure \
-	--enable-pic \
 	--enable-syslog \
 	--enable-generic-aesicm
 
-%make
+%make libsrtp.so.%{major}
 
 %install
 %makeinstall_std
@@ -74,8 +65,9 @@ rm -f %{buildroot}%{_libdir}/*.*a
 
 %files -n %{develname}
 %doc CHANGES README
-%{_includedir}/%{name}/*
+%{_includedir}/srtp/*
 %{_libdir}/*.so
+%{_libdir}/pkgconfig/libsrtp.pc
 
 
 %changelog
