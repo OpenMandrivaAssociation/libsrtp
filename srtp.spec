@@ -6,7 +6,7 @@
 Summary:	Secure Real-time Transport Protocol (SRTP)
 Name:		libsrtp
 Version:	1.6.0
-Release:	1
+Release:	2
 License:	GPL
 Group:		System/Libraries
 URL:		https://github.com/cisco/libsrtp/
@@ -44,8 +44,7 @@ Protocol (SRTP) library
 
 %prep
 
-%setup -q
-%apply_patches
+%autosetup -p1
 
 %build
 
@@ -53,15 +52,14 @@ Protocol (SRTP) library
 	--enable-syslog \
 	--enable-generic-aesicm
 
-%make shared_library
+%make_build shared_library
 
 %install
-%makeinstall_std
+%make_install
 
 rm -f %{buildroot}%{_libdir}/*.*a
 
 %files -n %{libname}
-%doc CHANGES README
 %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
