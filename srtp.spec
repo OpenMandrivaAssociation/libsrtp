@@ -6,13 +6,16 @@
 Summary:	Secure Real-time Transport Protocol (SRTP)
 Name:		libsrtp
 Version:	1.6.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		System/Libraries
 URL:		https://github.com/cisco/libsrtp/
 Source0:	https://github.com/cisco/libsrtp/archive/v%{version}.tar.gz
 Patch1:		libsrtp-sha1-name-fix.patch
-BuildRequires:	autoconf automake libtool
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
+BuildRequires:	pkgconfig(libpcap)
 
 %description
 SRTP is a security profile for RTP that adds confidentiality, message
