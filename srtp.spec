@@ -6,7 +6,7 @@
 Summary:	Secure Real-time Transport Protocol (SRTP)
 Name:		libsrtp
 Version:	1.6.0
-Release:	3
+Release:	4
 License:	GPL
 Group:		System/Libraries
 URL:		https://github.com/cisco/libsrtp/
