@@ -1,17 +1,16 @@
 %define	major 1
-%define libname	%mklibname srtp %{major}
-%define develname %mklibname -d srtp
+%define libname	%mklibname srtp2 %{major}
+%define develname %mklibname -d srtp2
 %define _disable_rebuild_configure 1
 
 Summary:	Secure Real-time Transport Protocol (SRTP)
 Name:		libsrtp
-Version:	1.6.0
-Release:	4
+Version:	2.2.0
+Release:	1
 License:	GPL
 Group:		System/Libraries
 URL:		https://github.com/cisco/libsrtp/
 Source0:	https://github.com/cisco/libsrtp/archive/v%{version}.tar.gz
-Patch1:		libsrtp-sha1-name-fix.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -46,7 +45,6 @@ This package contains the development files for the Secure Real-time Transport
 Protocol (SRTP) library
 
 %prep
-
 %autosetup -p1
 
 %build
@@ -66,7 +64,7 @@ rm -f %{buildroot}%{_libdir}/*.*a
 %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
-%doc CHANGES README
-%{_includedir}/srtp/*
+%doc CHANGES
+%{_includedir}/srtp2
 %{_libdir}/*.so
-%{_libdir}/pkgconfig/libsrtp.pc
+%{_libdir}/pkgconfig/libsrtp2.pc
