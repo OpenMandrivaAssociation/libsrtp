@@ -11,6 +11,8 @@ License:	GPL
 Group:		System/Libraries
 URL:		https://github.com/cisco/libsrtp/
 Source0:	https://github.com/cisco/libsrtp/archive/v%{version}.tar.gz
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
